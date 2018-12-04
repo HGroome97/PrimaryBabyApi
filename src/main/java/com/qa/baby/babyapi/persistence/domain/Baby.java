@@ -51,4 +51,9 @@ public class Baby {
 		this.birthday = string;
 	}
 
+	@Override
+	public String toString() {
+		return "Baby [babyId=" + babyId + ", name=" + name + ", birthday=" + birthday + "]";
+	}
+
 }

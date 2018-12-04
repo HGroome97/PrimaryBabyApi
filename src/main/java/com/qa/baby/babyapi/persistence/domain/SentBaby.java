@@ -42,6 +42,11 @@ public class SentBaby {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
+	
+	@Override
+	public String toString() {
+		return "Baby [babyId=" + babyId + ", name=" + name + ", birthday=" + birthday + "]";
+	}
 
 
 }

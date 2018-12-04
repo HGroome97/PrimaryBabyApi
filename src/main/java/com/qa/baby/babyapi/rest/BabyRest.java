@@ -38,32 +38,31 @@ public class BabyRest {
     
     
     
-//    @GetMapping("${path.getAccounts}")
-//    public List<Baby> getAccounts() {
-//        return service.getAccounts();
-//    }
-//
-//    @GetMapping("${path.getAccountById}")
-//    public Baby getAccount(@PathVariable Long id) {
-//        return service.getAccount(id);
-//    }
-//
-//    @DeleteMapping("${path.deleteAccount}")
-//    public ResponseEntity<Object> deleteAccount(@PathVariable Long id) {
-//        return service.deleteAccount(id);
-//    }
-//
-//    @PutMapping("${path.updateAccount}")
-//    public ResponseEntity<Object> updateAccount(@RequestBody Baby baby, @PathVariable Long id) {
-//        return service.updateAccount(baby, id);
-//    }
-    
+    @GetMapping("${path.getBabies}")
+    public List<Baby> getBabies() {
+        return service.getBabies();
+    }
+
+    @GetMapping("${path.getBabyById}")
+    public Baby getBaby(@PathVariable Long id) {
+        return service.getBaby(id);
+    }
+
+    @DeleteMapping("${path.deleteBaby}")
+    public ResponseEntity<Object> deleteBaby(@PathVariable Long id) {
+        return service.deleteBaby(id);
+    }
+
+    @PutMapping("${path.updateBaby}")
+    public ResponseEntity<Object> updateBaby(@RequestBody Baby baby) {
+        return service.updateBaby(baby);
+    }
+
     @GetMapping("${path.createBaby}")
-    public Baby createBaby(@PathVariable int length, @PathVariable String start) {
+    public String createBaby(@PathVariable int length, @PathVariable String start) {
         Baby baby = new Baby();
         setBabyName(baby, length, start);
         setBabyBirthday(baby);
-        sendToQueue(baby);
     	return service.addBaby(baby);
     }
 
@@ -78,9 +77,5 @@ public class BabyRest {
     	return baby;
     }
 
-    private void sendToQueue(Baby baby){
-        SentBaby babyToStore =  new SentBaby(baby.getId(), baby.getName(), baby.getBirthday());
-        jmsTemplate.convertAndSend("BabyQueue", babyToStore);
-    }
 
 }

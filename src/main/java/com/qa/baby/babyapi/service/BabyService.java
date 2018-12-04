@@ -12,9 +12,9 @@ public interface BabyService {
 
     Baby getBaby(Long id);
 
-    Baby addBaby(Baby baby);
+    String addBaby(Baby baby);
 
     ResponseEntity<Object> deleteBaby(Long id);
 
-    ResponseEntity<Object> updateBaby(Baby baby, Long id);
+    ResponseEntity<Object> updateBaby(Baby baby);
 }
