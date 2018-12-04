@@ -51,6 +51,7 @@ public class BabyServiceImpl implements BabyService {
     public ResponseEntity<Object> deleteBaby(Long id) {
         if(BabyExists(id)){
             repo.deleteById(id);
+            sendToDeleteQueue(id);
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
@@ -78,5 +79,11 @@ public class BabyServiceImpl implements BabyService {
         SentBaby babyToStore =  new SentBaby(baby.getId(), baby.getName(), baby.getBirthday());
         jmsTemplate.convertAndSend("BabyQueue", babyToStore);
     }
+    
+    private void sendToDeleteQueue(long babyId){
+        //SentBaby babyToDelete =  new SentBaby(baby.getId(), baby.getName(), baby.getBirthday());
+        jmsTemplate.convertAndSend("BabyDeleteQueue", babyId);
+    }
+    
 
 }

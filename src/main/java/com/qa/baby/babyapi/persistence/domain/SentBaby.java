@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class SentBaby {
 
-	private Long babyId;
+	private Long id;
 
     private String name;
     
@@ -14,17 +14,17 @@ public class SentBaby {
     }
 
     public SentBaby(Long babyId, String name, String birthday) {
-        this.babyId = babyId;
+        this.id = babyId;
     	this.name = name;
     	this.birthday = birthday;
     }
 
     public Long getId() {
-        return babyId;
+        return id;
     }
 
     public void setId(Long id) {
-        this.babyId = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -45,7 +45,7 @@ public class SentBaby {
 	
 	@Override
 	public String toString() {
-		return "Baby [babyId=" + babyId + ", name=" + name + ", birthday=" + birthday + "]";
+		return "Baby [babyId=" + id + ", name=" + name + ", birthday=" + birthday + "]";
 	}
 
 

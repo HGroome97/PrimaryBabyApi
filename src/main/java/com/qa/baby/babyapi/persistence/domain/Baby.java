@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 public class Baby {
     @Id
     @GeneratedValue
-    private Long babyId;
+    private Long id;
 
     private String name;
     
@@ -28,11 +28,11 @@ public class Baby {
     }
 
     public Long getId() {
-        return babyId;
+        return id;
     }
 
     public void setId(Long id) {
-        this.babyId = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -53,7 +53,7 @@ public class Baby {
 
 	@Override
 	public String toString() {
-		return "Baby [babyId=" + babyId + ", name=" + name + ", birthday=" + birthday + "]";
+		return "Baby [babyId=" + id + ", name=" + name + ", birthday=" + birthday + "]";
 	}
 
 }
