@@ -3,6 +3,7 @@ package com.qa.baby.babyapi.service;
 import org.springframework.http.ResponseEntity;
 
 import com.qa.baby.babyapi.persistence.domain.Baby;
+import com.qa.baby.babyapi.persistence.domain.SentBaby;
 
 import java.util.List;
 

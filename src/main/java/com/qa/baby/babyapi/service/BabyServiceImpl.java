@@ -26,6 +26,7 @@ public class BabyServiceImpl implements BabyService {
     @Override
     public List<Baby> getBabies() {
         return repo.findAll();
+ 
     }
 
     @Override
@@ -81,9 +82,7 @@ public class BabyServiceImpl implements BabyService {
     }
     
     private void sendToDeleteQueue(long babyId){
-        //SentBaby babyToDelete =  new SentBaby(baby.getId(), baby.getName(), baby.getBirthday());
         jmsTemplate.convertAndSend("BabyDeleteQueue", babyId);
     }
     
-
 }
